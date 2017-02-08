@@ -1,0 +1,14 @@
+<li ng-animate="'animate'">
+  <input type="checkbox" ng-checked="vm.task.done"/>
+  <label ng-class="{'done' : vm.task.done}" ng-click="vm.markAsDone($index, vm.task)">{{vm.task.description}}</label>
+  <i class="fa fa-pencil" ng-if="vm.task.editable" ng-click="vm.editTask($index, vm.task)"></i>
+  <i 
+    class="fa fa-trash"
+    confirm-action
+    confirm-title="Rimuovi questo task"
+    confirm-message="SEI SICURO DI VOLER ELIMINARE QUESTO ELEMENTO?"
+    confirm-button="Si"
+    confirm-abort-button="No"
+    ng-click="vm.removeTask($index)"
+  ></i>
+</li>

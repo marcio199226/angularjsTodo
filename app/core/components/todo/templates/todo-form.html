@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form name="vm.todoForm" id="todos" novalidate autocomplete="off" ng-submit="vm.todoForm.$valid && vm.addTask()">
+      <div class="col-xs-7" ng-class="{ 'has-error': vm.todoForm.todoListName.$invalid }">
+        <input type="text" class="form-control todoListName" name="todoListName" placeholder="Nome della lista" ng-model="vm.task.description" required ng-minlength="3" ng-maxlength="25" />
+        <div class="help-block" ng-messages="vm.todoForm.todoListName.$error" ng-show="!vm.todoForm.$pristine && vm.todoForm.todoListName.$invalid">
+          <span ng-message="required">Questo campo e obbligatorio</span>
+          <span ng-message="maxlength">La descrizione e troppo lunga</span>
+          <span ng-message="minlength">La descrizione e troppo corta</span>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <input type="checkbox" name="isEditable" ng-model="vm.task.editable" ng-checked="vm.task.editable"/> <label ng-click="vm.setAsEditable()">Editable</label>
+      </div>
+      <div class="col-xs-3">
+        <button type="submit" class="btn btn-default" ng-disabled="vm.todoForm.$invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-12 filter-by">
+    <div class="col-xs-3" ng-class="{'active' : vm.isFilterExpr(null, null)}" ng-click="vm.filterByProp(null, null)">
+      All
+    </div>
+    <div class="col-xs-3" ng-class="{'active' : vm.isFilterExpr('done', false)}" ng-click="vm.filterByProp('done', false)">
+      Pending
+    </div>
+    <div class="col-xs-3" ng-class="{'active' : vm.isFilterExpr('done', true)}" ng-click="vm.filterByProp('done', true)">
+      Done
+    </div>
+    <div class="col-xs-3" ng-class="{'active' : vm.isFilterExpr('editable', true)}" ng-click="vm.filterByProp('editable', true)">
+      Editable
+    </div>
+  </div>
+</div>

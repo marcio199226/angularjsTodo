@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="container">
+    <div ng-transclude="todoHeader">
+      <div class="row todo-container">
+        <div class="col-xs-12">
+          <h1>ToDo</h1>
+        </div>
+      </div>
+    </div>
+    <todo-form on-add="vm.onAddTask({ task : task })" />
+    <todo-filters on-filter-apply="vm.filterCollection({ prop : prop, val : val })" />
+    <todo-lists collection="vm.filteredTodos" on-edit="vm.editTask({ index : index, task : task })" on-remove="vm.removeTask({ index : index })" />
+    </div>
+    <div ng-transclude="todoFooter"></div>
+  </div>
+</div>

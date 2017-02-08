@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="todo-items">
+      <li id="task-{{key}}" class="todo-task" ng-repeat="(key, task) in vm.collection track by task.id" ng-class="{'editable' : task.editable}" ng-animate="'animate'">
+        <input type="checkbox" ng-checked="task.done"/>
+        <label ng-class="{'done' : task.done}" ng-click="vm.markAsDone($index, task)">{{task.description}}</label>
+        <i class="fa fa-pencil" ng-if="task.editable" ng-click="vm.editTask($index, task)"></i>
+        <i 
+          class="fa fa-trash"
+          confirm-action
+          confirm-title="Rimuovi questo task"
+          confirm-message="SEI SICURO DI VOLER ELIMINARE QUESTO ELEMENTO?"
+          confirm-button="Si"
+          confirm-abort-button="No"
+          element-selector="#task-{{key}}"
+          delay="2000"
+          ng-click="vm.removeTask($index)"
+         ></i>
+      </li>
+    </ul>
+    <div class="alert alert-danger" role="alert" ng-if="vm.collection.length === 0">Non ci sono task di questo tipo</div>
+  </div>
+</div>

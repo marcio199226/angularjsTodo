@@ -1,0 +1,22 @@
+<div class="modal-content">
+  <div class="modal-header-bar">
+    <span class="modal-title">{{vm.task.description}}</span>
+    <i class="modal-close icon-x" ng-click="vm.modalInstance.close()"></i>
+  </div>
+  <div class="modal-inner-content text-center">
+    <div 
+      class="contenteditable"
+      ng-attr-title="{{!vm.editMode ? 'Double click to edit in place' : 'Double click to disable edit mode'}}"
+      ng-class="{'editable' : vm.editMode }" 
+      ng-attr-contenteditable="{{ vm.editMode }}" 
+      strip-br="true" 
+      ng-model="vm.task.content" 
+      ng-dblclick="vm.setEditMode()"
+    ></div>
+    <textarea ng-model="vm.task.content" rows="20"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" ng-click="vm.modalInstance.close()">Cancel</button>
+    <button class="btn btn-lime" ng-click="vm.save()">Save</button>
+  </div>
+</div>
